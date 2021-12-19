@@ -11,3 +11,86 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+}
+
+.poll-page {
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  gap: 8px;
+}
+
+.poll-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.poll-text {
+  flex: 1;
+}
+
+.poll-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 4px;
+  margin: 8px auto;
+  display: flex;
+  gap: 8px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navbar {
+  width: 100vw;
+  padding: 0 8vw;
+  border: 2px solid black;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+}
+
+.nav-links, .authed-user-info {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-links {
+  margin-right: auto;
+}
+
+.nav-link:hover {
+  background-color: black;
+  color: white;
+}
+
+.nav-avatar {
+  width: 50px;
+  height: 50px;
+}

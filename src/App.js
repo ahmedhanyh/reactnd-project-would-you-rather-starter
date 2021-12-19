@@ -1,11 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
+import Poll from "./components/Poll";
+import { connect } from "react-redux";
+import { handleInitialData } from "./actions/shared";
+import Homepage from "./components/Homepage";
+import LeaderBoard from "./components/LeaderBoard";
+import LoginPage from "./components/LoginPage";
+import Nav from "./components/Nav";
 
-function App() {
-  return (
-    <div>
-      
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(handleInitialData());
+  }
+
+  render() {
+    return (
+      <Nav />
+    );
+  }
 }
 
-export default App;
+export default connect()(App);
