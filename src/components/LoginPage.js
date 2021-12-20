@@ -1,9 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { setAuthedUser } from "../actions/authedUser";
 
 class LoginPage extends Component {
+    state = {
+        chosenUser: '',
+    }
+
+    handleChange = e => {
+        const chosenUser = e.target.value;
+        
+        this.setState({ chosenUser });
+    }
+
     handleSubmit = e => {
         e.preventDefault();
+        
+        this.props.dispatch(setAuthedUser(this.state.chosenUser));
     }
 
     render() {
@@ -11,7 +24,8 @@ class LoginPage extends Component {
 
         return (
             <form onSubmit={this.handleSubmit} className="login-form">
-                <select name="users">
+                <label htmlFor="users">Choose yourself from this list of users to login</label>
+                <select id="users" name="users" value={this.state.chosenUser} onChange={this.handleChange}>
                     {
                         users.map(user => (
                             <option key={user.id} value={user.id}>{user.name}</option>

@@ -8,6 +8,7 @@ class LeaderBoard extends Component {
 
         return (
             <div>
+                <h3 className="center">LeaderBoard</h3>
                 {
                     usersIds.map(id => (
                         <User key={id} id={id} />

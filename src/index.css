@@ -18,6 +18,14 @@ body {
   align-items: center;
 }
 
+.app-body {
+  width: 50vw;
+}
+
+.center {
+  text-align: center;
+}
+
 .avatar {
   width: 150px;
   height: 150px;
@@ -35,10 +43,11 @@ body {
 .poll-options {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
-.poll-text {
-  flex: 1;
+.submit-btn {
+  margin-top: 16px;
 }
 
 .poll-form {
@@ -67,11 +76,11 @@ body {
 }
 
 .navbar {
-  width: 100vw;
-  padding: 0 8vw;
+  padding: 0 8px;
   border: 2px solid black;
+  border-radius: 8px;
+  margin-bottom: 8px;
   display: flex;
-  /* justify-content: space-around; */
   align-items: center;
 }
 
@@ -93,4 +102,19 @@ body {
 .nav-avatar {
   width: 50px;
   height: 50px;
+}
+
+.new-poll-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-poll-form button {
+  margin-top: 8px;
+}
+
+/* Homepage styles */
+.polls-columns {
+  display: flex;
+  gap: 8px;
 }
