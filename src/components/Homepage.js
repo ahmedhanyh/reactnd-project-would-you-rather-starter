@@ -3,35 +3,43 @@ import { connect } from "react-redux";
 import Poll from "./Poll";
 
 class Homepage extends Component {
+    state = {
+        showAnswered: false,
+    }
+
+    togglePolls = () => {
+        this.setState(currentState => ({ showAnswered: !currentState.showAnswered }));
+    }
+    
     render() {
         const { users, questionsIds, authedUser } = this.props;
+        const { showAnswered } = this.state;
 
         return (
             <div>
                 { authedUser === null
                 ? null
                 : (
-                    <div className="polls-columns">
-                        <div className="unanswered-polls">
-                        <h3 className="center">Unanswered Polls</h3>
+                    <div className="polls-column">
+                        <h3 onClick={this.togglePolls} className="homepage-toggle">Show {showAnswered ? 'Unanswered' : 'Answered'} Polls</h3>
                             {
-                                questionsIds
-                                .filter(id => !(id in users[authedUser].answers))
-                                .map(id => (
-                                        <Poll key={id} id={id} />
-                                    ))
+                                showAnswered
+                                ? (
+                                    questionsIds
+                                        .filter(id => (id in users[authedUser].answers))
+                                        .map(id => (
+                                                <Poll key={id} id={id} />
+                                        ))   
+                                )
+                                : (
+                                        
+                                    questionsIds
+                                        .filter(id => !(id in users[authedUser].answers))
+                                        .map(id => (
+                                            <Poll key={id} id={id} />
+                                        ))
+                                )
                             }
-                        </div>
-                        <div className="answered-polls">
-                        <h3 className="center">Answered Polls</h3>
-                            {
-                                questionsIds
-                                .filter(id => id in users[authedUser].answers)
-                                .map(id => (
-                                        <Poll key={id} id={id} />
-                                    ))
-                            }
-                        </div>
                     </div>
                 )
                 }

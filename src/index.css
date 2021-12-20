@@ -113,8 +113,21 @@ body {
   margin-top: 8px;
 }
 
-/* Homepage styles */
 .polls-columns {
   display: flex;
   gap: 8px;
+}
+
+polls-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.homepage-toggle {
+  text-align: center;
+  cursor: pointer;
+}
+
+.homepage-toggle:hover {
+  text-decoration: underline;
 }
