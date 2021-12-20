@@ -5,20 +5,12 @@ import { NavLink } from "react-router-dom";
 import { clearAuthedUser } from "../actions/authedUser";
 
 class Nav extends Component {
-    state = {
-        toHome: false,
-    }
 
     handleLogout = e => {
         this.props.dispatch(clearAuthedUser());
-        this.setState({ toHome: true });
     }
 
     render() {
-        if (this.state.toHome) {
-            return <Redirect to="/" />
-        }
-
         const { user, authedUser } = this.props;
 
         return (
@@ -30,7 +22,7 @@ class Nav extends Component {
                 </div>
                 <div className="authed-user-info">
                     <div>{authedUser ? user.name : ''}</div>
-                    <img src={authedUser ? user.avatarURL : ''} className="nav-avatar" />
+                    <img src={authedUser ? user.avatarURL : '../images/No_Image.png'} className="nav-avatar" />
                     <button onClick={this.handleLogout}>Logout</button>
                 </div>
             </div>

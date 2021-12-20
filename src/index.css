@@ -118,7 +118,7 @@ body {
   gap: 8px;
 }
 
-polls-details {
+.polls-details {
   display: flex;
   flex-direction: column;
 }

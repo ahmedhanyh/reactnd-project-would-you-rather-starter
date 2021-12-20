@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import LoginPage from "./LoginPage";
 import Poll from "./Poll";
 
 class Homepage extends Component {
@@ -18,7 +19,7 @@ class Homepage extends Component {
         return (
             <div>
                 { authedUser === null
-                ? null
+                ? <LoginPage />
                 : (
                     <div className="polls-column">
                         <h3 onClick={this.togglePolls} className="homepage-toggle">Show {showAnswered ? 'Unanswered' : 'Answered'} Polls</h3>

@@ -1,25 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import User from "./User";
+import LoginPage from "./LoginPage";
 
 class LeaderBoard extends Component {
     render() {
-        const { usersIds } = this.props;
+        const { usersIds, authedUser } = this.props;
 
         return (
             <div>
-                <h3 className="center">LeaderBoard</h3>
-                {
-                    usersIds.map(id => (
-                        <User key={id} id={id} />
-                    ))
-                }
+            {
+                authedUser === null
+                ? <LoginPage />
+                : (
+                    <div>
+                        <h3 className="center">LeaderBoard</h3>
+                        {
+                            usersIds.map(id => (
+                                <User key={id} id={id} />
+                            ))
+                        }
+                    </div>
+                )
+            }
             </div>
         )
     }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
     return {
         usersIds: Object.keys(users)
           .sort((a, b) => {
@@ -27,7 +36,8 @@ function mapStateToProps({ users }) {
               let totalB = Object.keys(users[b].answers).length + users[b].questions.length;
 
               return totalB - totalA;
-          })
+          }),
+        authedUser,
     }
 }
 

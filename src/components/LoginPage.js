@@ -4,13 +4,14 @@ import { setAuthedUser } from "../actions/authedUser";
 
 class LoginPage extends Component {
     state = {
-        chosenUser: '',
+        chosenUser: 'sarahedo',
     }
 
     handleChange = e => {
         const chosenUser = e.target.value;
         
         this.setState({ chosenUser });
+        console.log(this.state.chosenUser);
     }
 
     handleSubmit = e => {
